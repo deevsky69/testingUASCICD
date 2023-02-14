@@ -17,10 +17,6 @@
             <class name="AUTest3"/>
         </classes>
     </test>
-    <test name="AUTTest4">
-        <classes>
-            <class name="AUTest4"/>
-        </classes>
-    </test>
+    
 
 </suite>

@@ -43,6 +43,7 @@ public class AUTest3 {
     public void thirdTry() throws Exception{
         driver.get("http://pluto18.epizy.com/index.php");
         driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
+        Thread.sleep(2000);
         this.takeSnapShot(driver, "test3.png");
     }
     

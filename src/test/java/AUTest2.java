@@ -45,6 +45,7 @@ public class AUTest2 {
         driver.findElement(By.id("username")).sendKeys("adiva");
         driver.findElement(By.id("password")).sendKeys("fiqri");
         driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
+        
         this.takeSnapShot(driver, "test2.png");
     }
     
