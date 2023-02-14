@@ -42,11 +42,11 @@ public class AUTest1 {
 
     @Test
     public void firstTry() throws Exception{
-        driver.get("https://localhost/");
+        driver.get("http://pluto18.epizy.com/index.php");
         driver.findElement(By.id("username")).sendKeys("admin");
         driver.findElement(By.id("password")).sendKeys("admin123");
-        this.takeSnapShot(driver, "test1.png");
         driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
+        this.takeSnapShot(driver, "test1.png");
     }
     
     @AfterTest

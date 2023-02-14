@@ -5,7 +5,11 @@
  */
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -36,15 +40,23 @@ public class AUTest3 {
     }
 
     @Test
-    public void thirdTry(){
-        driver.get("https://localhost/index.php");
+    public void thirdTry() throws Exception{
+        driver.get("http://pluto18.epizy.com/index.php");
         driver.findElement(By.xpath("/html/body/div/form/input[3]")).click();
+        this.takeSnapShot(driver, "test3.png");
     }
     
     @AfterTest
     public void tearDown(){
         driver.close();
         driver.quit();
+    }
+    
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception{
+        TakesScreenshot scrShot = ((TakesScreenshot)webdriver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
     }
 
     // TODO add test methods here.

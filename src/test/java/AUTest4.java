@@ -5,7 +5,11 @@
  */
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -36,18 +40,26 @@ public class AUTest4 {
     }
 
     @Test
-    public void fourTry(){
-        driver.get("https://localhost/index.php");
+    public void fourTry() throws Exception{
+        driver.get("http://pluto18.epizy.com/index.php");
         driver.findElement(By.id("password")).sendKeys("fiqri");
         String expectedResult = "*****";
         String actualResult = driver.findElement(By.id("password")).getText();
         Assert.assertEquals(expectedResult, actualResult);
+        this.takeSnapShot(driver, "test4.png");
     }
     
     @AfterTest
     public void tearDown(){
         driver.close();
         driver.quit();
+    }
+    
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception{
+        TakesScreenshot scrShot = ((TakesScreenshot)webdriver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
     }
 
     // TODO add test methods here.
