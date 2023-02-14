@@ -42,7 +42,7 @@ public class AUTest1 {
 
     @Test
     public void firstTry() throws Exception{
-        driver.get("https://localhost/index.php");
+        driver.get("https://localhost/autUAS-master/index.php");
         driver.findElement(By.id("username")).sendKeys("admin");
         driver.findElement(By.id("password")).sendKeys("admin123");
         this.takeSnapShot(driver, "test1.png");
