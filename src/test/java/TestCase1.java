@@ -5,6 +5,10 @@
  */
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -35,11 +39,12 @@ public class TestCase1 {
     }
     
     @Test
-    public void firstTry(){
+    public void firstTry() throws Exception{
         driver.get("https://google.com");
         String expectedTitle = "Google";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
+        this.takeSnapShot(driver, "test1.png");
         
     }
     
@@ -47,6 +52,13 @@ public class TestCase1 {
     public void tearDown(){
         driver.close();
         driver.quit();
+    }
+    
+    public static void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception{
+        TakesScreenshot scrShot = ((TakesScreenshot)webdriver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile = new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
     }
         
     public TestCase1() {
