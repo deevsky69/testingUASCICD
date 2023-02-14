@@ -28,6 +28,23 @@
             <version>7.5</version>
             <scope>test</scope>
         </dependency>
+        
     </dependencies>
-    
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>2.10</version>
+  <configuration>
+    <useFile>false</useFile>
+    <suiteXmlFile>src\test\java\TestSuite1.xml</suiteXmlFile>
+  </configuration>
+</plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
+
+
+

@@ -1,22 +1,22 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="TestSuite1">
-    <test name="AUT Test 1">
+    <test name="AUTTest1">
         <classes>
             <class name="AUTest1"/>
         </classes>
     </test>
-     <test name="AUT Test 2">
+     <test name="AUTTest2">
         <classes>
             <class name="AUTest2"/>
         </classes>
     </test>
-    <test name="AUT Test 3">
+    <test name="AUTTest3">
         <classes>
             <class name="AUTest3"/>
         </classes>
     </test>
-    <test name="AUT Test 4">
+    <test name="AUTTest4">
         <classes>
             <class name="AUTest4"/>
         </classes>
